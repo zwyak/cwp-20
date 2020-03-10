@@ -34,4 +34,12 @@ app.get('/countries/*.html', async (req, res) => {
   await res.render('country', {country: country, citiesCount: citiesCount, cities: cities});
 });
 
+app.get('/cities/*.html', async (req, res) => {
+  if (!req.query.ID) res.sendStatus(401);
+  const city = await db.city.findByPk(req.query.ID, {raw: true});
+  const country = await db.country.findByPk(city.CountryCode, {raw: true});
+  console.log(country);
+  await res.render('city', {city: city, country: country});
+});
+
 app.listen(3000, () => console.log('Server listening on port 3000!'));
