@@ -1,6 +1,5 @@
 const City = require('./city');
 const Country = require('./country');
-const CountryLanguage = require('./countryLanguage');
 
 
 module.exports = (Sequelize) => {
@@ -17,12 +16,8 @@ module.exports = (Sequelize) => {
     storage: './world'
   });
 
-  //const city = City(Sequelize, sequelize);
-  //const country = Country(Sequelize, sequelize);
-  //const countryLanguage = CountryLanguage(Sequelize, sequelize);
-
-  //country.hasMany(city);
-  //country.hasMany(countryLanguage);
+  const city = City(Sequelize, sequelize);
+  const country = Country(Sequelize, sequelize);
 
   sequelize.sync()
     .then(data =>{
@@ -31,9 +26,8 @@ module.exports = (Sequelize) => {
     })
 
   return {
-    //city,
-    //country,
-    //countryLanguage,
+    city,
+    country,
 
     sequelize: sequelize,
     Sequelize: Sequelize
