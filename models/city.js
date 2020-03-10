@@ -15,8 +15,7 @@ module.exports = (Sequelize, sequelize) => {
       type: Sequelize.STRING(20)
     },
     info: {
-      type: Sequelize.JSON,
-      defaultValue: 0
+      type: Sequelize.JSON
     }
   }, {
     freezeTableName: true,

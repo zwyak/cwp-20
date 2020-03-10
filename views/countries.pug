@@ -6,7 +6,7 @@ h1 Countries: from #{offset} till #{offset + count}
 ul
   each country in countries
     li
-    a(href=`/countries/${country.Code}.html`) [#{country.Name} : #{country.Capital}]
+    a(href=`/countries/${country.Code}.html?code=${country.Code}`) [#{country.Name} : #{country.Capital}]
 
 ul(id='menu')
   each page in pages
