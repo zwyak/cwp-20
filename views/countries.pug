@@ -1,3 +1,17 @@
+html
+  head
+    style
+      include style.css
+h1 Countries: from #{offset} till #{offset + count}
 ul
   each country in countries
-    li= country.name
+    li
+    a(href=`/countries/${country.Code}.html`) [#{country.Name} : #{country.Capital}]
+
+ul(id='menu')
+  each page in pages
+    li
+    if (page) == currentPage
+      a(class = 'hotpink', href=`/countries.html?page=${page}`) [#{page}]
+    else
+      a(class = 'blue', href=`/countries.html?page=${page}`) [#{page}]

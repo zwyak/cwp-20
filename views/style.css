@@ -1,0 +1,12 @@
+ul#menu li {
+  display:inline;
+  padding-right: 15px;
+}
+
+.hotpink{
+  color: hotpink;
+}
+
+.blue{
+  color: blue;
+}
