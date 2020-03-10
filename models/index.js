@@ -4,20 +4,21 @@ const Country = require('./country');
 
 module.exports = (Sequelize) => {
   const sequelize = new Sequelize('world', 'root', 'root', {
-    host: 'localhost',
+    username: 'root',
+    password: null,
+    database: 'world',
+    host: '127.0.0.1',
     dialect: 'sqlite',
-
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
+    dialectOptions: {
+      multipleStatements: true
     },
-
-    storage: './world'
+    logging: console.log,
+    storage: './models/world.db',
+    operatorsAliases: Sequelize.Op
   });
 
-  const city = City(Sequelize, sequelize);
-  const country = Country(Sequelize, sequelize);
+  //const city = City(Sequelize, sequelize);
+  //const country = Country(Sequelize, sequelize);
 
   sequelize.sync()
     .then(data =>{
@@ -26,8 +27,8 @@ module.exports = (Sequelize) => {
     })
 
   return {
-    city,
-    country,
+    //city,
+    //country,
 
     sequelize: sequelize,
     Sequelize: Sequelize

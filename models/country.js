@@ -50,6 +50,7 @@ module.exports = (Sequelize, sequelize) => {
       type: Sequelize.STRING(2)
     }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };

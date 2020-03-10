@@ -19,6 +19,7 @@ module.exports = (Sequelize, sequelize) => {
       defaultValue: 0
     }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    timestamps: false
   });
 };
