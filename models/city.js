@@ -14,8 +14,8 @@ module.exports = (Sequelize, sequelize) => {
     district: {
       type: Sequelize.STRING(20)
     },
-    population: {
-      type: Sequelize.INTEGER,
+    info: {
+      type: Sequelize.JSON,
       defaultValue: 0
     }
   }, {

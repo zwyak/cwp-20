@@ -17,18 +17,17 @@ module.exports = (Sequelize) => {
     operatorsAliases: Sequelize.Op
   });
 
-  //const city = City(Sequelize, sequelize);
-  //const country = Country(Sequelize, sequelize);
+  const city = City(Sequelize, sequelize);
+  const country = Country(Sequelize, sequelize);
 
   sequelize.sync()
     .then(data =>{
       console.log(data);
-      sequelize.query("SELECT * FROM `city`", { type: sequelize.QueryTypes.SELECT }).then(res=>{console.log(res);})
-    })
+    });
 
   return {
-    //city,
-    //country,
+    city,
+    country,
 
     sequelize: sequelize,
     Sequelize: Sequelize
