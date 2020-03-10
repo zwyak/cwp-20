@@ -5,3 +5,8 @@ p Code-2: #{country.Code2}
 p Capital: #{country.Capital}
 br
 p Cities count - #{citiesCount}
+br
+ul
+  each city in cities
+    li
+    a(href=`/cities/${city.ID}.html?ID=${city.ID}`) [#{city.Name}]
